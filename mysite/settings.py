@@ -58,6 +58,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'csp.middleware.CSPMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -91,3 +92,6 @@ SITE_URL = 'http://127.0.0.1:8000'
 SESSION_COOKIE_SECURE = False
 LOGIN_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL_FAILURE = '/failure'
+
+CSP_SCRIPT_SRC = ("'self'", 'https://login.persona.org', 'http://ajax.googleapis.com')
+CSP_FRAME_SRC = ("'self'", 'https://login.persona.org')
